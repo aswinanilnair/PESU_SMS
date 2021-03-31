@@ -1,0 +1,9 @@
+asgiref @ file:///tmp/build/80754af9/asgiref_1605055780383/work
+autopep8==1.4.4
+certifi==2020.12.5
+Django==2.2.8
+pep8==1.7.1
+psycopg2 @ file:///opt/concourse/worker/volumes/live/7541fe58-2a45-4073-5d69-313e733fc729/volume/psycopg2_1612298592535/work
+pycodestyle==2.5.0
+pytz==2018.5
+sqlparse==0.2.4
