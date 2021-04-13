@@ -42,3 +42,28 @@ def GetUserDetails(request):
 def doLogout(request):
     logout(request)
     return HttpResponseRedirect("/")
+
+def showFirebaseJS(request):
+    data='importScripts("https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js");' \
+         'importScripts("https://www.gstatic.com/firebasejs/7.14.6/firebase-messaging.js"); ' \
+         'var firebaseConfig = {' \
+         '        apiKey: "AIzaSyCwyXV153RswT9KrKY83n7U11WIDW0lypY",' \
+         '        authDomain: "pesu-app-7f2b7.firebaseapp.com",' \
+         '        projectId: "pesu-app-7f2b7",' \
+         '        storageBucket: "pesu-app-7f2b7.appspot.com",' \
+         '        messagingSenderId: "67075534720",' \
+         '        appId: "1:67075534720:web:3706e12241b47441bc9b65",' \
+         ' };' \
+         'firebase.initializeApp(firebaseConfig);' \
+         'const messaging=firebase.messaging();' \
+         'messaging.setBackgroundMessageHandler(function (payload) {' \
+         '    console.log(payload);' \
+         '    const notification=JSON.parse(payload);' \
+         '    const notificationOption={' \
+         '        body:notification.body,' \
+         '        icon:notification.icon' \
+         '    };' \
+         '    return self.registration.showNotification(payload.notification.title,notificationOption);' \
+         '});'
+
+    return HttpResponse(data,content_type="text/javascript")

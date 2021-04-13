@@ -202,41 +202,6 @@ def staff_all_notification(request):
     notifications=NotificationStaffs.objects.filter(staff_id=staff.id)
     return render(request,"staff_template/all_notification.html",{"notifications":notifications})
 
-def staff_add_result(request):
-    subjects=Subjects.objects.filter(staff_id=request.user.id)
-    session_years=SessionYearModel.object.all()
-    return render(request,"staff_template/staff_add_result.html",{"subjects":subjects,"session_years":session_years})
-
-def save_student_result(request):
-    if request.method!='POST':
-        return HttpResponseRedirect('staff_add_result')
-    student_admin_id=request.POST.get('student_list')
-    assignment_marks=request.POST.get('assignment_marks')
-    exam_marks=request.POST.get('exam_marks')
-    subject_id=request.POST.get('subject')
-
-
-    student_obj=Students.objects.get(admin=student_admin_id)
-    subject_obj=Subjects.objects.get(id=subject_id)
-
-    try:
-        check_exist=StudentResult.objects.filter(subject_id=subject_obj,student_id=student_obj).exists()
-        if check_exist:
-            result=StudentResult.objects.get(subject_id=subject_obj,student_id=student_obj)
-            result.subject_assignment_marks=assignment_marks
-            result.subject_exam_marks=exam_marks
-            result.save()
-            messages.success(request, "Successfully Updated Result")
-            return HttpResponseRedirect(reverse("staff_add_result"))
-        else:
-            result=StudentResult(student_id=student_obj,subject_id=subject_obj,subject_exam_marks=exam_marks,subject_assignment_marks=assignment_marks)
-            result.save()
-            messages.success(request, "Successfully Added Result")
-            return HttpResponseRedirect(reverse("staff_add_result"))
-    except:
-        messages.error(request, "Failed to Add Result")
-        return HttpResponseRedirect(reverse("staff_add_result"))
-
 @csrf_exempt
 # def fetch_result_student(request):
 #     subject_id=request.POST.get('subject_id')

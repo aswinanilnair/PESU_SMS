@@ -51,6 +51,11 @@ urlpatterns = [
     path('edit_course_save', HodViews.edit_course_save,name="edit_course_save"),
     path('manage_session', HodViews.manage_session,name="manage_session"),
     path('add_session_save', HodViews.add_session_save,name="add_session_save"),
+    path('admin_send_notification_staff', HodViews.admin_send_notification_staff,name="admin_send_notification_staff"),
+    path('admin_send_notification_student', HodViews.admin_send_notification_student,name="admin_send_notification_student"),
+    path('send_student_notification', HodViews.send_student_notification,name="send_student_notification"),
+    path('send_staff_notification', HodViews.send_staff_notification,name="send_staff_notification"),
+
                       #     Staff URL Path
     path('staff_home', StaffViews.staff_home, name="staff_home"),
     path('staff_take_attendance', StaffViews.staff_take_attendance, name="staff_take_attendance"),
@@ -86,7 +91,7 @@ urlpatterns = [
     path('student_profile', StudentViews.student_profile, name="student_profile"),
     path('student_profile_save', StudentViews.student_profile_save, name="student_profile_save"),
     path('student_fcmtoken_save', StudentViews.student_fcmtoken_save, name="student_fcmtoken_save"),
-    # path('firebase-messaging-sw.js',views.showFirebaseJS,name="show_firebase_js"),
+    path('firebase-messaging-sw.js',views.showFirebaseJS,name="show_firebase_js"),
     path('student_all_notification',StudentViews.student_all_notification,name="student_all_notification"),
     # path('student_view_result',StudentViews.student_view_result,name="student_view_result"),
     # path('join_class_room/<int:subject_id>/<int:session_year_id>',StudentViews.join_class_room,name="join_class_room"),
