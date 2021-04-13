@@ -17,7 +17,7 @@ def student_home(request):
     attendance_absent=AttendanceReport.objects.filter(student_id=student_obj,status=False).count()
     course=Courses.objects.get(id=student_obj.course_id.id)
     subjects=Subjects.objects.filter(course_id=course).count()
-    # subjects_data=Subjects.objects.filter(course_id=course)
+    subjects_data=Subjects.objects.filter(course_id=course)
     # session_obj=SessionYearModel.object.get(id=student_obj.session_year_id.id)
     # class_room=OnlineClassRoom.objects.filter(subject__in=subjects_data,is_active=True,session_years=session_obj)
 
