@@ -18,17 +18,26 @@
   <link rel="stylesheet" href="{% static "dist/css/adminlte.min.css" %}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <style>
+      .img-container {
+        text-align: center;
+      }
+    </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Student</b> Management System</a>
+    <a href="../../index2.html"><b>PESU</b> APP</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to Student Management System</p>
+      <p class="login-box-msg">Sign in to the PESU App</p>
 
+    <div class="img-container"> 
+      <img src="{% static "dist/img/pesu2.png" %}" alt="PESU Logo">
+    </div>
       <form action="/login" method="post">
           {% csrf_token %}
         <div class="input-group mb-3">
